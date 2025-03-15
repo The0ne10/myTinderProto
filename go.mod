@@ -1,3 +1,3 @@
-module github.com/The0ne10/myTinderProto@v0.0.1
+module github.com/The0ne10/myTinderProto
 
 go 1.24.0
