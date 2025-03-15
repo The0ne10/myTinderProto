@@ -1,0 +1,8 @@
+version: "3"
+
+tasks:
+  generate:
+    desc: "Генерация прото файлов"
+    cmds:
+      - protoc --go_out=. --go-grpc_out=. proto/*.proto
+
