@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package profile_service;
+
+option go_package = "profile_service/proto";
+
+service ProfileService {
+  rpc CreateProfile (CreateProfileRequest) returns (CreateProfileResponse);
+  rpc GetProfile (GetProfileRequest) returns (GetProfileResponse);
+  rpc UpdateProfile (UpdateProfileRequest) returns (UpdateProfileResponse);
+  rpc DeleteProfile (DeleteProfileRequest) returns (DeleteProfileResponse);
+}
+
+message CreateProfileRequest {
+  string name = 1;
+  float latitude = 2;
+  float longitude = 3;
+}
+
+message CreateProfileResponse {
+  int64 user_id = 1;
+  string message = 2;
+}
+
+message GetProfileRequest {
+  int64 user_id = 1;
+}
+
+message ProfileData {
+  int64 user_id = 1;
+  float latitude = 2;
+  float longitude = 3;
+}
+
+message GetProfileResponse {
+  ProfileData profile_data = 1;
+}
+
+// Сообщение для обновления профиля
+message UpdateProfileRequest {
+  bool success = 1;
+  ProfileData new_data = 2;
+}
+
+message UpdateProfileResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message DeleteProfileRequest {
+  int64 user_id = 1;
+}
+
+message DeleteProfileResponse {
+  bool success = 1;
+  string message = 2;
+}
